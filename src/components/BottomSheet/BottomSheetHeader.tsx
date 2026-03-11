@@ -5,6 +5,7 @@ const Close = () => {
   const { close } = useBottomSheetContext();
   return (
     <button
+      data-testid="bottom-sheet-close"
       onClick={close}
       className="cursor-pointer absolute right-4 top-4 text-fg"
     >

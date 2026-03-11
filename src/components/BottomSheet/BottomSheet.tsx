@@ -65,6 +65,7 @@ export default function BottomSheet({
                 "mt-auto w-full h-[70%] rounded-t-xl flex flex-col overflow-hidden pointer-events-auto",
                 isOpen ? "bottomsheet-enter" : "bottomsheet-exit",
               )}
+              data-testid="bottom-sheet"
             >
               {header}
               {body}
