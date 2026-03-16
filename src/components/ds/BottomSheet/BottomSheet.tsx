@@ -1,13 +1,12 @@
 import { Children, isValidElement, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import { clsx } from "clsx";
-import { usePresence } from "../../hooks/usePresence";
-import { useScrollLock } from "../../hooks/useScrollLock";
-import { useFocusTrap } from "../../hooks/useFocusTrap";
-import { BottomSheetContext } from "../../contexts/BottomSheetContext";
-import { BottomSheetHeader } from "./BottomSheetHeader";
-import { BottomSheetFooter } from "./BottomSheetFooter";
-import { BottomSheetBody } from "./BottomSheetBody";
+import { usePresence } from "../../../hooks/usePresence";
+import { useScrollLock } from "../../../hooks/useScrollLock";
+import { useFocusTrap } from "../../../hooks/useFocusTrap";
+import { BottomSheetContext } from "../../../contexts/BottomSheetContext";
+import { BottomSheetHeader, BottomSheetBody, BottomSheetFooter } from "./";
+
 import {
   BOTTOM_SHEET_HEADER,
   BOTTOM_SHEET_BODY,

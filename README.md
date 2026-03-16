@@ -1,75 +1,82 @@
-# React + TypeScript + Vite
+# Design System — Tailwind v4 • CSS Tokens • tailwind-variants
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This repository contains a modern, scalable Design System built with **Tailwind v4**, **CSS variables**, and **tailwind-variants**.  
+The goal is to provide a clean, maintainable foundation for building consistent, elegant, and theme‑aware user interfaces.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tech Stack
 
-## React Compiler
+- **Vite** — fast development environment
+- **React + TypeScript** — strict typing and modern DX
+- **Tailwind v4** — atomic styling with native design tokens
+- **CSS Variables** — dynamic theming (light, forest, ocean, neon…)
+- **tailwind-variants** — typed variants, slots, and component composition
+- **Jotai** — minimal global state (e.g., active theme)
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 🎨 Design System Architecture
 
-## Expanding the ESLint configuration
+The DS is structured around three core layers:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### **1. Tokens**
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Defined via `:root` and `data-theme`, they control:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- `--bg`, `--surface`, `--fg`
+- `--accent`, `--accent-fg`
+- `--border`, `--glow`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Each theme overrides **values**, never structure.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### **2. Primitives**
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Low‑level, typed UI components built with `tailwind-variants`:
+
+- `Button`
+- `Card`
+- `Badge`
+- `Alert`
+- `Input`
+- `BottomSheet` (compound component)
+- `Modal`
+
+Each primitive exposes:
+
+- **Variants** (size, color, state…)
+- **Slots** (root, header, body, footer…)
+- **Strict TypeScript types** via `VariantProps`
+
+---
+
+### **3. Patterns**
+
+The DS follows modern UI architecture patterns:
+
+- Compound components
+- Slot‑based composition
+- Responsive variants
+- Data‑attribute variants
+- Zero custom CSS (Tailwind‑only)
+- Predictable, theme‑aware styling
+
+---
+
+## 📦 Example — Card Component
+
+```tsx
+const { root, header, body, footer } = card({ shadow: "md" });
+
+return (
+  <div className={root()}>
+    <div className={header()}>Card Title</div>
+    <div className={body()}>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    </div>
+    <div className={footer()}>Footer content</div>
+  </div>
+);
 ```
