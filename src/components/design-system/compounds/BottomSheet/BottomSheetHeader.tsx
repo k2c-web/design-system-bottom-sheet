@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from "react";
-import { useBottomSheetContext } from "../../../contexts/BottomSheetContext";
+import { useBottomSheetContext } from "../../../../contexts/BottomSheetContext";
 import { BOTTOM_SHEET_HEADER } from "./bottomSheetSymbols";
 
 const Close = () => {

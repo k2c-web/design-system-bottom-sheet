@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { themeAtom } from "../atoms/themeAtom";
+import { themeAtom } from "../../../atoms/themeAtom";
 
 const THEMES = [
   "day",

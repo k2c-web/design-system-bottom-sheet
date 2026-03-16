@@ -1,6 +1,6 @@
-import { useBottomSheet } from "./hooks/useBottomSheet";
-import BottomSheet from "./components/ds/BottomSheet/BottomSheet";
-import { Button } from "./components/ds";
+import { useBottomSheet } from "./hooks/bottomSheet/useBottomSheet";
+import BottomSheet from "./components/design-system/compounds/BottomSheet/BottomSheet";
+import { Button } from "./components/design-system";
 import { ThemeSwitcher } from "./components/app/ThemeSwitcher/ThemeSwitcher";
 import { Header } from "./components/app/Layout/Header";
 import { useAtomValue } from "jotai";
@@ -10,7 +10,7 @@ import {
   SubTitle,
   Suptitle,
   Title,
-} from "./components/ds/typography";
+} from "./components/design-system/primitives/typography";
 import { DEMO_BOTTOM_SHEET } from "./data/demo";
 
 export default function App() {

@@ -6,7 +6,7 @@ export interface HeaderProps {
   right?: ReactNode;
 }
 
-export function Header({
+export function HeaderSlots({
   left,
   center = (
     <h1 className="text-header-fg text-lg font-semibold">Design System !</h1>
