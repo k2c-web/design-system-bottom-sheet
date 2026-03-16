@@ -9,6 +9,20 @@
   --color-glow:             rgba(180, 200, 230, 0.6);
 }
 
+/* night theme — used by both system preference and manual selection */
+@media (prefers-color-scheme: dark) {
+  :root {
+  --color-surface:          #1a1a1a;
+  --color-on-surface:       #e8e8e8;
+  --color-surface-raised:   #242424;
+  --color-on-surface-muted: #9ca3af;
+  --color-primary:          #1a1a1a;
+  --color-on-primary:       #e8e8e8;
+  --color-outline:          #3a3a3a;
+  --color-glow:             rgba(226, 232, 240, 0.15);
+  }
+}
+
 [data-theme="day"] {
   --color-surface:          #ffffff;
   --color-on-surface:       #1f2933;
@@ -25,8 +39,8 @@
   --color-on-surface:       #e8e8e8;
   --color-surface-raised:   #242424;
   --color-on-surface-muted: #9ca3af;
-  --color-primary:          #e2e8f0;
-  --color-on-primary:       #1a1a1a;
+  --color-primary:          #1a1a1a;
+  --color-on-primary:       #e8e8e8;
   --color-outline:          #3a3a3a;
   --color-glow:             rgba(226, 232, 240, 0.15);
 }

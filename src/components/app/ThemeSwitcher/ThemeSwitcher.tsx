@@ -24,6 +24,9 @@ export const ThemeSwitcher = () => {
         onChange={(e) => handleChange(e.target.value)}
         className="px-3 py-2 rounded-lg border border-outline bg-primary text-on-primary transition-colors duration-normal ease-standard"
       >
+        <option value="" disabled>
+          Choisir un thème
+        </option>
         {THEMES.map((theme) => (
           <option key={theme} value={theme}>
             Thème {capitalize(theme)}

@@ -1,3 +1,3 @@
 import { atom } from "jotai";
 
-export const themeAtom = atom("day");
+export const themeAtom = atom("");
