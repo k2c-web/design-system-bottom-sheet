@@ -1,0 +1,76 @@
+:root {
+  --color-surface:          #ffffff;
+  --color-on-surface:       #1f2933;
+  --color-surface-raised:   #f3f3f3;
+  --color-on-surface-muted: #6b7280;
+  --color-primary:          #dee6f6;
+  --color-on-primary:       #231f1f;
+  --color-outline:          #d1d5db;
+  --color-glow:             rgba(180, 200, 230, 0.6);
+}
+
+[data-theme="day"] {
+  --color-surface:          #ffffff;
+  --color-on-surface:       #1f2933;
+  --color-surface-raised:   #f3f3f3;
+  --color-on-surface-muted: #6b7280;
+  --color-primary:          #dee6f6;
+  --color-on-primary:       #231f1f;
+  --color-outline:          #d1d5db;
+  --color-glow:             rgba(180, 200, 230, 0.6);
+}
+
+[data-theme="night"] {
+  --color-surface:          #1a1a1a;
+  --color-on-surface:       #e8e8e8;
+  --color-surface-raised:   #242424;
+  --color-on-surface-muted: #9ca3af;
+  --color-primary:          #e2e8f0;
+  --color-on-primary:       #1a1a1a;
+  --color-outline:          #3a3a3a;
+  --color-glow:             rgba(226, 232, 240, 0.15);
+}
+
+[data-theme="solarized"] {
+  --color-surface:          #fdf6e3;
+  --color-on-surface:       #073642;
+  --color-surface-raised:   #eee8d5;
+  --color-on-surface-muted: #586e75;
+  --color-primary:          #b58900;
+  --color-on-primary:       #fdf6e3;
+  --color-outline:          #d1cbb8;
+  --color-glow:             rgba(214, 192, 128, 0.55);
+}
+
+[data-theme="forest"] {
+  --color-surface:          #0a1f12;
+  --color-on-surface:       #e6fbe6;
+  --color-surface-raised:   #0e2517;
+  --color-on-surface-muted: #86efac;
+  --color-primary:          #22c55e;
+  --color-on-primary:       #052e16;
+  --color-outline:          #14532d;
+  --color-glow:             rgba(34, 197, 94, 0.45);
+}
+
+[data-theme="ocean"] {
+  --color-surface:          #071524;
+  --color-on-surface:       #c1dbf9;
+  --color-surface-raised:   #0d2136;
+  --color-on-surface-muted: #7dd3fc;
+  --color-primary:          #38bdf8;
+  --color-on-primary:       #0c1a2e;
+  --color-outline:          #1e3a5f;
+  --color-glow:             rgba(56, 189, 248, 0.45);
+}
+
+[data-theme="neon"] {
+  --color-surface:          #020008;
+  --color-on-surface:       #b9ffb9;
+  --color-surface-raised:   #0b2f10;
+  --color-on-surface-muted: #86efac;
+  --color-primary:          #39ff14;
+  --color-on-primary:       #020008;
+  --color-outline:          #14532d;
+  --color-glow:             rgba(57, 255, 20, 0.7);
+}

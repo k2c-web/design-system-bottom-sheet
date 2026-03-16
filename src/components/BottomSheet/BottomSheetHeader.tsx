@@ -1,5 +1,6 @@
 import type { PropsWithChildren } from "react";
 import { useBottomSheetContext } from "../../contexts/BottomSheetContext";
+import { BOTTOM_SHEET_HEADER } from "./bottomSheetSymbols";
 
 const Close = () => {
   const { close } = useBottomSheetContext();
@@ -15,10 +16,10 @@ const Close = () => {
 };
 
 export const BottomSheetHeader = ({ children }: PropsWithChildren) => (
-  <div className="sticky top-0 p-4 bg-btn-bg">
-    {children}
+  <div className="sticky top-0 p-4 bg-primary text-on-primary border-b border-outline">
     <Close />
+    <div className="container-global">{children}</div>
   </div>
 );
 
-BottomSheetHeader.displayName = "BottomSheet.Header";
+BottomSheetHeader._id = BOTTOM_SHEET_HEADER;

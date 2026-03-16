@@ -1,51 +1,6 @@
 @import "tailwindcss";
-@import "./themes.css";
-
-/* -------------------------------------------------------
-   1) Tailwind Tokens (via @theme)
-   ------------------------------------------------------- */
-@theme {
-  --color-bg: var(--bg);
-  --color-fg: var(--fg);
-
-  --color-btn-bg: var(--btn-bg);
-  --color-btn-fg: var(--btn-fg);
-
-  --color-header-bg: var(--header-bg);
-  --color-header-fg: var(--header-fg);
-
-  --color-glow: var(--glow);
-  --color-header-glow: var(--header-glow);
-}
-
-/* -------------------------------------------------------
-   2) Utilities Layer — Layout, Animations, Glow
-   ------------------------------------------------------- */
-@layer utilities {
-  .container-global {
-    max-width: 1280px;
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-
-  @keyframes bottomsheet-enter {
-    from { transform: translateY(100%) }
-    to   { transform: translateY(0) }
-  }
-
-  @keyframes bottomsheet-exit {
-    from { transform: translateY(0) }
-    to   { transform: translateY(100%) }
-  }
-
-  .bottomsheet-enter {
-    animation: bottomsheet-enter 0.3s ease-out forwards;
-  }
-
-  .bottomsheet-exit {
-    animation: bottomsheet-exit 0.3s ease-out forwards;
-  }
-
-}
+@import "./src/styles/theme.css";
+@import "./src/styles/themes.css";
+@import "./src/styles/typography.css";
+@import "./src/styles/layout.css";
+@import "./src/styles/animations.css";

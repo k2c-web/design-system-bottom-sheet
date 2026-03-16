@@ -5,6 +5,8 @@ import { ThemeSwitcher } from "./components/ThemeSwitcher";
 import { Header } from "./components/Layout/Header";
 import { useAtomValue } from "jotai";
 import { themeAtom } from "./atoms/themeAtom";
+import { Paragraph, SubTitle, Suptitle, Title } from "./components/typography";
+import { DEMO_BOTTOM_SHEET } from "./data/demo";
 
 export default function App() {
   const sheet = useBottomSheet();
@@ -13,41 +15,54 @@ export default function App() {
   return (
     <div>
       <Header />
-      <div className="container-global">
-        <ThemeSwitcher />
-        <h2>Bottom Sheet</h2>
-        <p className="mb-8">
-          A Bottom Sheet is a user interface component that slides up from the
-          bottom of the screen to display content that complements the main
-          screen.
-        </p>
-        <Button onClick={sheet.open}>Ouvrir la bottom sheet</Button>
-      </div>
 
-      <BottomSheet
-        isOpen={sheet.isOpen}
-        onClose={sheet.close}
-        onOpen={sheet.open}
-      >
+      <main className="container-global">
+        <ThemeSwitcher />
+
+        <Suptitle>{DEMO_BOTTOM_SHEET.suptitle}</Suptitle>
+
+        <Title>{DEMO_BOTTOM_SHEET.title}</Title>
+
+        <Paragraph className="mb-8">{DEMO_BOTTOM_SHEET.description}</Paragraph>
+
+        <div>
+          <div className="flex gap-4 justify-center mb-4">
+            <Button onClick={sheet.open}>Ouvrir la bottom sheet</Button>
+
+            <Button
+              disabled
+              onClick={sheet.open}
+              aria-label="Bouton désactivé - exemple"
+            >
+              Ne pas cliquer
+            </Button>
+          </div>
+          <Button className="w-full" onClick={sheet.open}>
+            Pleine largeur
+          </Button>
+        </div>
+      </main>
+
+      <BottomSheet isOpen={sheet.isOpen} onClose={sheet.close}>
         <BottomSheet.Header>
-          <h2 className="text-btn-fg"> Theme : {currentTheme}</h2>
+          <Title as="h2" className="text-primary-fg">
+            Theme : {currentTheme}
+          </Title>
         </BottomSheet.Header>
 
         <BottomSheet.Body>
-          <h2 className="text-xl font-bold text-fg">Produit incroyable</h2>
+          <SubTitle as="h3">{DEMO_BOTTOM_SHEET.productTitle}</SubTitle>
 
-          {[...Array(40)].map((_, i) => (
-            <p key={i} className="text-fg/70">
-              Ligne #{i + 1} — Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit.
-            </p>
-          ))}
+          <Paragraph>{DEMO_BOTTOM_SHEET.productDescription}</Paragraph>
         </BottomSheet.Body>
 
         <BottomSheet.Footer>
-          <div className="text-center">
-            <Button onClick={() => alert("cta clicked !")}>
-              Call To Action !
+          <div className="flex gap-4 justify-center">
+            <Button variant="solid" size="lg" onClick={() => alert("Action !")}>
+              Call To Action
+            </Button>
+            <Button variant="outline" size="lg" onClick={sheet.close}>
+              Annuler
             </Button>
           </div>
         </BottomSheet.Footer>

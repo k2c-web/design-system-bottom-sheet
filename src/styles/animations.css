@@ -1,0 +1,18 @@
+@keyframes bottomsheet-enter {
+  from { transform: translateY(100%) }
+  to   { transform: translateY(0) }
+}
+
+@keyframes bottomsheet-exit {
+  from { transform: translateY(0) }
+  to   { transform: translateY(100%) }
+}
+
+@layer utilities {
+  .bottomsheet-enter {
+    animation: bottomsheet-enter var(--duration-normal) var(--ease-decelerate) forwards;
+  }
+  .bottomsheet-exit {
+    animation: bottomsheet-exit var(--duration-normal) var(--ease-accelerate) forwards;
+  }
+}

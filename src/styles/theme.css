@@ -1,0 +1,39 @@
+@theme {
+  /* tokens fixes — jamais overridés par les thèmes */
+  --duration-fast:        150ms;
+  --duration-normal:      250ms;
+  --duration-slow:        350ms;
+  --duration-emphasized:  300ms;
+
+  --ease-standard:        cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-emphasized:      cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-decelerate:      cubic-bezier(0, 0, 0.2, 1);
+  --ease-accelerate:      cubic-bezier(0.4, 0, 1, 1);
+
+  --z-overlay:            40;
+  --z-modal:              50;
+  --z-popover:            60;
+  --z-toast:              70;
+
+  --radius-none:          0px;
+  --radius-sm:            4px;
+  --radius-md:            8px;
+  --radius-lg:            12px;
+  --radius-xl:            16px;
+  --radius-full:          9999px;
+
+  --height-header:        60px;
+  --height-bottom-sheet:  calc(100vh - var(--height-header) - 20px);
+}
+
+/* pont couleurs dynamiques */
+@theme inline {
+  --color-surface:          var(--color-surface);
+  --color-on-surface:       var(--color-on-surface);
+  --color-surface-raised:   var(--color-surface-raised);
+  --color-on-surface-muted: var(--color-on-surface-muted);
+  --color-primary:          var(--color-primary);
+  --color-on-primary:       var(--color-on-primary);
+  --color-outline:          var(--color-outline);
+  --color-glow:             var(--color-glow);
+}

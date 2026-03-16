@@ -8,18 +8,21 @@ import { BottomSheetContext } from "../../contexts/BottomSheetContext";
 import { BottomSheetHeader } from "./BottomSheetHeader";
 import { BottomSheetFooter } from "./BottomSheetFooter";
 import { BottomSheetBody } from "./BottomSheetBody";
+import {
+  BOTTOM_SHEET_HEADER,
+  BOTTOM_SHEET_BODY,
+  BOTTOM_SHEET_FOOTER,
+} from "./bottomSheetSymbols";
 
 interface BottomSheetProps {
   isOpen: boolean;
   onClose: () => void;
-  onOpen: () => void;
   children: ReactNode;
 }
 
 export default function BottomSheet({
   isOpen,
   onClose,
-  onOpen,
   children,
 }: BottomSheetProps) {
   const { isPresent, ref: presenceRef } = usePresence<HTMLDivElement>(isOpen);
@@ -34,12 +37,10 @@ export default function BottomSheet({
   Children.forEach(children, (child) => {
     if (!isValidElement(child)) return;
 
-    const type = child.type as { displayName?: string };
-    const name = type.displayName;
-
-    if (name === "BottomSheet.Header") header = child;
-    if (name === "BottomSheet.Body") body = child;
-    if (name === "BottomSheet.Footer") footer = child;
+    const type = child.type as { _id?: symbol };
+    if (type._id === BOTTOM_SHEET_HEADER) header = child;
+    if (type._id === BOTTOM_SHEET_BODY) body = child;
+    if (type._id === BOTTOM_SHEET_FOOTER) footer = child;
   });
 
   const portalRoot = document.getElementById("portal");
@@ -50,19 +51,25 @@ export default function BottomSheet({
       value={{
         isOpen,
         close: onClose,
-        open: onOpen,
       }}
     >
       {isPresent &&
         createPortal(
-          <div className="fixed inset-0 z-overlay flex flex-col pointer-events-none">
+          <div className="fixed inset-0 z-overlay flex flex-col">
+            <div
+              className={clsx(
+                "absolute inset-0 bg-scrim transition-opacity duration-normal ease-standard",
+                isOpen ? "opacity-100" : "opacity-0",
+              )}
+              onClick={onClose}
+            />
             <div
               ref={(el) => {
                 presenceRef.current = el;
                 focusRef.current = el;
               }}
               className={clsx(
-                "mt-auto w-full h-[70%] rounded-t-xl flex flex-col overflow-hidden pointer-events-auto",
+                "mt-auto w-full rounded-t-xl flex flex-col overflow-hidden h-bottom-sheet",
                 isOpen ? "bottomsheet-enter" : "bottomsheet-exit",
               )}
               data-testid="bottom-sheet"

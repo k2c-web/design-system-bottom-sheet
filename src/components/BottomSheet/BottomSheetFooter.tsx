@@ -1,7 +1,8 @@
 import type { PropsWithChildren } from "react";
+import { BOTTOM_SHEET_FOOTER } from "./bottomSheetSymbols";
 
 export const BottomSheetFooter = ({ children }: PropsWithChildren) => (
-  <div className="sticky bottom-0 p-4 border-t border-gray-200">{children}</div>
+  <div className="sticky bottom-0 p-4 bg-on-surface">{children}</div>
 );
 
-BottomSheetFooter.displayName = "BottomSheet.Footer";
+BottomSheetFooter._id = BOTTOM_SHEET_FOOTER;

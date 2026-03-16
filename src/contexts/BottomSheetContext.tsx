@@ -3,7 +3,6 @@ import { createContext, useContext } from "react";
 
 export interface BottomSheetAPI {
   isOpen: boolean;
-  open: () => void;
   close: () => void;
 }
 
